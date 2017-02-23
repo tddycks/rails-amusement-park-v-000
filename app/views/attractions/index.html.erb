@@ -1,0 +1,15 @@
+<ul>
+  <% @attractions.each do |attraction| %>
+    <li><a href="/attractions/<%= attraction.id %>">
+    <% if @current_user.admin %>
+      Show
+    <% else %>
+      Go on 
+    <% end %>
+    <%= attraction.name %></a>
+  <% end %>
+</ul>
+
+<% if @current_user.admin %>
+  <a href="/attractions/new">New Attraction</a>
+<% end %>
